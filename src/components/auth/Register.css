@@ -1,0 +1,15 @@
+.registerPage {
+    width: 50%;
+    margin: 0 auto;
+    background-color: white;
+    padding: 1.5em;
+    min-height: 40em;
+}
+
+
+@media (max-width: 667px) {
+  .registerPage {
+    width: inherit;
+    padding: 1em;
+  }
+}

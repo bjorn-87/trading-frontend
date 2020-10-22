@@ -1,0 +1,66 @@
+.NavBar {
+    /* background-color: #2685c4; */
+    background-color: #fbfbfb;
+    display: flex;
+    justify-content: space-between;
+}
+
+.NavBar ul {
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+    margin: 0.5em;
+}
+
+.NavBar li {
+    display: block;
+    margin-right: 1em;
+    text-decoration: none;
+}
+
+.NavBar a {
+    text-decoration: none;
+    color: #2685c4;
+    /* font-size: 1.4rem; */
+    margin-bottom: 0;
+}
+
+.NavBar a:hover {
+    text-decoration: underline;
+}
+
+.logo {
+    width: 60px;
+    margin: 0.5em;
+}
+
+.navBtn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.navBtn p {
+    font-size: 0.8rem;
+    margin: 0;
+}
+
+.App-logo {
+  width: 40px;
+  margin: 0.5em;
+  pointer-events: none;
+}
+
+.logoText {
+    display: flex;
+    flex-direction: row;
+}
+
+@media screen and (max-width: 700px) {
+    .NavBar a {
+        font-size: 1rem;
+    }
+    .navBtn p {
+        display: none;
+    }
+}

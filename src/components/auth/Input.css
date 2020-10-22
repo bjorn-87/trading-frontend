@@ -1,0 +1,74 @@
+.input {
+    font-size: 1.4rem;
+    line-height: 1.4;
+    font-family: "Roboto", sans-serif;
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 0.2rem;
+    padding: 1rem 1rem;
+    box-sizing: border-box;
+    width: 100%;
+    margin-bottom: 1.4rem;
+    resize: none;
+}
+.input-form {
+    font-size: 1.4rem;
+    line-height: 1.4;
+    font-family: "Roboto", sans-serif;
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 0.2rem;
+    padding: 1rem 4rem;
+    box-sizing: border-box;
+    width: 100%;
+    margin-bottom: 1.4rem;
+    resize: none;
+}
+
+.input-label {
+    font-weight: bold;
+    margin: 2rem 0 0 0;
+    display: block;
+}
+
+.input-label:first-of-type {
+    margin: 1rem 0 0 0;
+}
+
+.input-label::after {
+    content: ":";
+}
+
+.input:valid {
+    border: 1px solid green;
+}
+
+.input:focus {
+    box-shadow: 0 0 7px 2px #0091ea;
+}
+
+.gdpr {
+    display: inline;
+    font-size: 0.8rem;
+    margin-left: 1rem;
+    margin-bottom: 1.4rem;
+}
+
+.box {
+    transform: scale(1.5);
+}
+
+.text {
+    font-size: 1rem;
+}
+
+@media (max-width: 667px) {
+    .input-form {
+        width: inherit;
+        border: 0;
+        padding: 0;
+    }
+    .input-label {
+        display: none;
+    }
+}
