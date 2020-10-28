@@ -4,7 +4,7 @@ import {
     Route
 } from 'react-router-dom';
 
-import HomePage from '../page/HomePage.js';
+import StockPage from '../page/StockPage.js';
 import {Login, LogOut} from '../auth/Auth.js';
 import Register from '../auth/Register.js';
 import NavBar from '../page/NavBar.js';
@@ -44,7 +44,7 @@ class App extends Component {
                           <NavBar loggedIn={loggedIn}/>
                       </header>
                       <div className="App-body" >
-                          <Route exact path="/" component={HomePage} />
+                          <Route exact path="/" component={StockPage} />
                           <Route exact path="/login" render={() =>
                               <Login loggedIn={this.changeHandler} />
                           }/>

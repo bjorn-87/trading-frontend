@@ -56,7 +56,7 @@ class Login extends Component {
                     localStorage.setItem('token', res.data.token);
                     localStorage.setItem('loggedIn', true);
 
-                    console.log(localStorage);
+                    // console.log(localStorage);
                     this.setState({
                         message: res.data.message,
                         redirect: "/"
