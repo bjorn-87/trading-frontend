@@ -8,6 +8,7 @@ import StockPage from '../page/StockPage.js';
 import {Login, LogOut} from '../auth/Auth.js';
 import Register from '../auth/Register.js';
 import NavBar from '../page/NavBar.js';
+import MyPage from '../page/MyPage.js';
 import './App.css';
 
 class App extends Component {
@@ -49,6 +50,7 @@ class App extends Component {
                               <Login loggedIn={this.changeHandler} />
                           }/>
                           <Route exact path="/register" component={Register} />
+                          <Route exact path="/mypage" component={MyPage} />
                           <Route exact path="/logout" render={() =>
                               <LogOut loggedIn={this.changeHandler} />
                           }/>

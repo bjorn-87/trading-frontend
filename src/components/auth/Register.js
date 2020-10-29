@@ -3,8 +3,8 @@ import {Redirect} from 'react-router-dom';
 import GetUrl from '../div/GetUrl.js';
 
 import "./Register.css";
-import "./Buttons.css";
-import "./Input.css";
+import "../div/Buttons.css";
+import "../div/Input.css";
 
 class Register extends Component {
     constructor(props) {

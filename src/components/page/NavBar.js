@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import ExitToApp from '@material-ui/icons/ExitToApp';
 import Person from '@material-ui/icons/Person';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
+import Timeline from '@material-ui/icons/Timeline';
 
 import Logo from '../../graph.svg';
 
@@ -16,15 +17,23 @@ const NavBar = (props) => {
                 <Link to="/">
                     <span className="logoText">
                         <img className="App-logo" src={Logo} alt="logo" />
-                        <p>StockExchange</p>
+                        <p>CandyExchange</p>
                     </span>
                 </Link>
                 <ul>
                     <li>
                         <Link to="/">
                             <span className="navBtn">
+                                <Timeline/>
+                                <p>Stocks</p>
+                            </span>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/mypage">
+                            <span className="navBtn">
                                 <Person/>
-                                <p>My site</p>
+                                <p>My page</p>
                             </span>
                         </Link>
                     </li>
@@ -45,7 +54,7 @@ const NavBar = (props) => {
                 <Link to="/">
                     <span className="logoText">
                         <img className="App-logo" src={Logo} alt="logo" />
-                        <p>StockExchange</p>
+                        <p>CandyExchange</p>
                     </span>
                 </Link>
                 <ul>

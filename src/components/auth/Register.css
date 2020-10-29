@@ -4,6 +4,8 @@
     background-color: white;
     padding: 1.5em;
     min-height: 40em;
+    border-radius: 10px;
+    box-shadow: 0 0 7px 0 #ccc;
 }
 
 
@@ -11,5 +13,7 @@
   .registerPage {
     width: inherit;
     padding: 1em;
+    border-radius: 0;
+    box-shadow: 0;
   }
 }

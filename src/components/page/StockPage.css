@@ -4,12 +4,65 @@
     background-color: white;
     padding: 1.5em;
     min-height: 40em;
+    border-radius: 10px;
+    box-shadow: 0 0 7px 0 #ccc;
+}
+
+.stockFormHolder {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    padding: 1.5em;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 7px 0 #ccc;
+    margin-top: 1em;
+    /* min-height: 40em; */
+}
+
+.stockForm {
+    width: 50%;
+    background-color: white;
+    padding: 1.5em;
+    /* border-radius: 10px;
+    box-shadow: 0 0 7px 0 #ccc; */
+}
+
+.rickshaw_graph {
+    border: 1px solid #ccc;
+}
+
+.stockPage h2 {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.stockPrice {
+    border: 1px solid #ccc;
+    text-align: center;
 }
 
 @media screen and (max-width: 700px) {
     .stockPage {
+        background-color: #fbfbfb;
         width: inherit;
         padding: 1em;
         margin: 0;
+        border-radius: 0;
+        box-shadow: 0 0 0 0;
+    }
+    .stockFormHolder {
+        flex-direction: column;
+        width: inherit;
+        box-shadow: 0 0 0 0;
+    }
+    .stockForm {
+        width: inherit;
+        background-color: white;
+        padding: 1.5em;
+        margin: 1em;
+        /* border-radius: 10px; */
+        /* box-shadow: 0 0 7px 0 #ccc; */
     }
 }

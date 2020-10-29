@@ -4,9 +4,9 @@ html {
     overflow-y: scroll;
     height: 100%;
     width: 100%;
-    color: #333;
+    color: #555;
     font-size: 100%;
-    background-color: #333;
+    background-color: #2685c4;
 }
 
 .App-body {
@@ -14,7 +14,13 @@ html {
     margin: 0 auto;
     min-height: 40em;
     line-height: 1.4;
+    padding-top: 1em;
+    padding-bottom: 1em;
 }
+
+/* .app {
+    position: relative;
+} */
 
 main {
     padding: 1.4rem 0.6rem;
@@ -55,14 +61,20 @@ code {
 }
 
 .pageFooter {
-    bottom: 0;
+    /* position: relative; */
+    /* bottom: 0; */
+    margin-top: 1em;
     width: 100%;
-    position: relative;
+    /* position: absolute; */
     display: flex;
     justify-content: center;
-    background-color: #333;
+    background-color: #2685c4;
     color: #fff;
-    min-height: 5em;
+    min-height: 10em;
+}
+
+.pageFooter p {
+    padding-top: 1.5em;
 }
 
 /* @media screen and (max-width: 700px) {
