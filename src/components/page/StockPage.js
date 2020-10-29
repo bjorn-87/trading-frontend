@@ -8,7 +8,8 @@ import './StockPage.css';
 import '../div/Buttons.css';
 import '../div/Input.css';
 
-const socket = io("http://localhost:8383");
+const socket = io(GetUrl());
+// const socket = io("http://localhost:8383");
 // const socket = io('https://trading-server.bjos19.me');
 
 class StockPage extends Component {
