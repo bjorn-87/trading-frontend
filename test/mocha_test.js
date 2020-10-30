@@ -9,8 +9,6 @@ const webdriver = require("selenium-webdriver");
 const firefox = require('selenium-webdriver/firefox');
 const chrome = require('selenium-webdriver/chrome');
 const By = webdriver.By;
-const until = webdriver.until;
-
 
 let browser;
 
@@ -34,23 +32,23 @@ function assertElementByCss(elemnt, target) {
     });
 }
 
-async function loginToPage() {
-    await browser.findElement(By.id("email")).then(function(element) {
+function loginToPage() {
+    browser.findElement(By.id("email")).then(function(element) {
         element.sendKeys("test@bjos19.me");
     });
 
-    await browser.findElement(By.id("password")).then(function(element) {
+    browser.findElement(By.id("password")).then(function(element) {
         element.sendKeys("test");
     });
 
-    await browser.findElement(By.id("subBtn")).then(function(element) {
+    browser.findElement(By.id("subBtn")).then(function(element) {
         element.submit();
     });
 }
 
 // Does not work with WSL!! Use cygwin
 
-// Test suite
+// Test suite firefox (doesnt work for me)
 // test.describe("CandyExchange page", function() {
 //     test.beforeEach(function(done) {
 //         this.timeout(20000);
@@ -70,7 +68,7 @@ test.describe("CandyExchange page", function() {
         this.timeout(20000);
         browser = new webdriver.Builder()
             .withCapabilities(webdriver.Capabilities.chrome())
-            .setChromeOptions(new chrome.Options().headless())
+            .setChromeOptions(new chrome.Options().addArguments('log-level=3').headless())
             .forBrowser('chrome')
             .build();
 
@@ -85,17 +83,19 @@ test.describe("CandyExchange page", function() {
 
     // Test case
     test.it("Test index", function(done) {
+        // get the title of the website
         browser.getTitle().then(function(title) {
             assert.equal(title, "CandyExchange");
         });
 
+        // match the url
         matchUrl("");
 
         done();
     });
 
     test.it("Test go to register", function(done) {
-
+        // use navlink login
         goToNavLink("Register");
 
         // get h2 text
@@ -103,49 +103,75 @@ test.describe("CandyExchange page", function() {
         //
         // check that the first label is E-post
         assertElementByCss("label", "E-Post");
-        //
+        // match the url
         matchUrl("register");
 
         done();
     });
 
-    test.it("Test go to Login and then back to index", function(done) {
-        // try use nav link
+    test.it("Test go to login and then back to index", function(done) {
+        // use navlink login
         goToNavLink("Login");
 
-        loginToPage();
-
-        browser.sleep(2000);
-        // await browser.wait(until.elementLocated(By.css('h1')), 30000);
-        goToNavLink("CandyExchange");
-
-        goToNavLink("My page");
-
-        assertElementByCss("h1", "My page");
-
-        assertElementByCss("h3", "User: test@bjos19.me");
-        // await matchUrl("mypage");
-        //
-        //
-        // assertElementByCss("h1", "Candy Stock");
-        //
-        // matchUrl("");
-
-        done();
-    });
-
-    test.it("Test go to Admin and then back to Me", function(done) {
-        // try use nav link
-        goToNavLink("Login");
-
+        // find h2
         assertElementByCss("h2", "Logga in");
 
         matchUrl("login");
 
+        // use navlink CandyExchange (logo)
         goToNavLink("CandyExchange");
 
+        // find h1
         assertElementByCss("h1", "Candy stock");
 
+        // match the Url
+        matchUrl("");
+
+        done();
+    });
+
+    test.it("Test to login and see the mypage", function(done) {
+        // use navlink login
+        goToNavLink("Login");
+
+        // Login to the page
+        loginToPage();
+
+        // browser wait for pagereload
+        browser.sleep(1000);
+
+        // find h1
+        assertElementByCss("h1", "My page");
+
+        // find h3
+        assertElementByCss("h3", "User: test@bjos19.me");
+
+        // match the Url
+        matchUrl("mypage");
+
+        done();
+    });
+
+    test.it("Test login, go to stocks and see buy button", function(done) {
+        // use navlink login
+        goToNavLink("Login");
+
+        // Login to the page
+        loginToPage();
+
+        // browser wait for pagereload
+        browser.sleep(1000);
+
+        // use navlink stocks
+        goToNavLink("Stocks");
+
+        // browser wait for pagereload
+        browser.sleep(3000);
+
+        // find button
+        assertElementByCss("button", "Buy");
+
+        //match the Url
         matchUrl("");
 
         done();
