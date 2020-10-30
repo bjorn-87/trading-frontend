@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Redirect} from 'react-router-dom';
 import GetUrl from '../div/GetUrl.js';
+import PropTypes from "prop-types";
 
 import "./Auth.css";
 import "../div/Buttons.css";
@@ -138,5 +139,13 @@ class Login extends Component {
         );
     }
 }
+
+LogOut.propTypes = {
+    loggedIn: PropTypes.func.isRequired,
+};
+
+Login.propTypes = {
+    loggedIn: PropTypes.func.isRequired,
+};
 
 export {Login, LogOut};

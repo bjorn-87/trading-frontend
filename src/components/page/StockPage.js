@@ -15,6 +15,7 @@ const socket = io(GetUrl());
 class StockPage extends Component {
     constructor(props) {
         super(props);
+        this._isMounted = false;
 
         this.baseUrl = GetUrl();
         this.slugify = this.slugify.bind(this);
@@ -43,6 +44,8 @@ class StockPage extends Component {
         const user = localStorage.getItem('user');
         const token = localStorage.getItem('token');
 
+        this._isMounted = true;
+
         if (loggedIn) {
             this.setState({
                 loggedIn: true,
@@ -62,21 +65,27 @@ class StockPage extends Component {
         socket.on('stocks', (stocks) => {
             let first = this.state.first;
 
-            this.setState({
-                stocks: stocks
-            });
-
-            if (first) {
-                this.drawStockChart(stocks[0], palette, graphElement0, graphContainer);
-                this.drawStockChart(stocks[1], palette, graphElement1, graphContainer);
-
+            if (this._isMounted) {
                 this.setState({
-                    first: false
+                    stocks: stocks
                 });
+
+                if (first) {
+                    this.drawStockChart(stocks[0], palette, graphElement0, graphContainer);
+                    this.drawStockChart(stocks[1], palette, graphElement1, graphContainer);
+
+                    this.setState({
+                        first: false
+                    });
+                }
+                this.updateDiagram(stocks[0]);
+                this.updateDiagram(stocks[1]);
             }
-            this.updateDiagram(stocks[0]);
-            this.updateDiagram(stocks[1]);
         });
+    }
+
+    componentWillUnmount() {
+        this._isMounted = false;
     }
 
     updateDiagram(stock) {

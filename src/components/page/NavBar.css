@@ -57,7 +57,7 @@
 }
 
 .logoText p {
-    font-size: 20px;
+    font-size: 1.3rem;
     margin-bottom: 0;
 }
 
@@ -66,6 +66,11 @@
         font-size: 1rem;
     }
     .navBtn p {
+        /* display: none; */
+        font-size: 0.6rem;
+    }
+
+    .logoText p {
         display: none;
     }
 }

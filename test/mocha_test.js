@@ -44,7 +44,7 @@ async function loginToPage() {
     });
 
     await browser.findElement(By.id("subBtn")).then(function(element) {
-        element.submit().takeScreenshot();
+        element.submit();
     });
 }
 
@@ -109,11 +109,13 @@ test.describe("CandyExchange page", function() {
         done();
     });
 
-    test.it("Test go to Login and then back to index", async function(done) {
+    test.it("Test go to Login and then back to index", function(done) {
         // try use nav link
         goToNavLink("Login");
 
-        await loginToPage();
+        loginToPage();
+
+        browser.sleep(2000);
         // await browser.wait(until.elementLocated(By.css('h1')), 30000);
         goToNavLink("CandyExchange");
 
@@ -121,7 +123,7 @@ test.describe("CandyExchange page", function() {
 
         assertElementByCss("h1", "My page");
 
-        // await assertElementByCss("h3", "User: test@bjos19.me");
+        assertElementByCss("h3", "User: test@bjos19.me");
         // await matchUrl("mypage");
         //
         //

@@ -2,7 +2,7 @@
     width: 50%;
     margin: 0 auto;
     background-color: white;
-    padding: 1.5em;
+    padding: 2em;
     min-height: 40em;
     border-radius: 10px;
     box-shadow: 0 0 7px 0 #ccc;
@@ -45,24 +45,19 @@
 
 @media screen and (max-width: 700px) {
     .stockPage {
-        background-color: #fbfbfb;
         width: inherit;
         padding: 1em;
         margin: 0;
         border-radius: 0;
-        box-shadow: 0 0 0 0;
     }
     .stockFormHolder {
         flex-direction: column;
         width: inherit;
-        box-shadow: 0 0 0 0;
     }
     .stockForm {
         width: inherit;
         background-color: white;
         padding: 1.5em;
         margin: 1em;
-        /* border-radius: 10px; */
-        /* box-shadow: 0 0 7px 0 #ccc; */
     }
 }

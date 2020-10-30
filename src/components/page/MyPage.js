@@ -134,7 +134,7 @@ class MyPage extends Component {
                 <h1>My page</h1>
                 <div>
                     <h3>User: {email}</h3>
-                    <h3>Account: {account ? account : 0} SEK</h3>
+                    <h3>Account: {account ? account.toFixed(2) : 0} SEK</h3>
                     <table className="table">
                         <thead>
                             <tr>
