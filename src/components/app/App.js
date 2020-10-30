@@ -62,7 +62,7 @@ class App extends Component {
                         />
                     </div>
                     <footer className="pageFooter">
-                        <p>&copy; Björn Olsson 2020</p>
+                        <p>&copy; Björn Olsson | CandyExchange 2020</p>
                     </footer>
                 </div>
             </Router>

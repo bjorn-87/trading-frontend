@@ -131,7 +131,7 @@ class MyPage extends Component {
         }
         return (
             <div className="userPage">
-                <h1>My page</h1>
+                <h1 className="stockTitle">My page</h1>
                 <div>
                     <h3>User: {email}</h3>
                     <h3>Account: {account ? account.toFixed(2) : 0} SEK</h3>

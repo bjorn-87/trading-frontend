@@ -1,3 +1,6 @@
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/bjorn-87/trading-frontend/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/bjorn-87/trading-frontend/?branch=main) [![Build Status](https://scrutinizer-ci.com/g/bjorn-87/trading-frontend/badges/build.png?b=main)](https://scrutinizer-ci.com/g/bjorn-87/trading-frontend/build-status/main)
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

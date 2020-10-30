@@ -122,7 +122,7 @@ test.describe("CandyExchange page", function() {
         goToNavLink("CandyExchange");
 
         // find h1
-        assertElementByCss("h1", "Candy stock");
+        assertElementByCss("h1", "Stocks available");
 
         // match the Url
         matchUrl("");

@@ -21,6 +21,20 @@
     /* min-height: 40em; */
 }
 
+.stockTitle {
+    color: #2685c4;
+}
+
+.stockMessage {
+    width: 50%;
+    margin: 1.5em auto;
+    background-color: white;
+    padding: 0.2em 2em;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 7px 0 #ccc;
+}
+
 .stockForm {
     width: 50%;
     background-color: white;
@@ -50,14 +64,23 @@
         margin: 0;
         border-radius: 0;
     }
+
     .stockFormHolder {
         flex-direction: column;
         width: inherit;
+        border-radius: 0;
     }
+
     .stockForm {
         width: inherit;
         background-color: white;
         padding: 1.5em;
         margin: 1em;
+    }
+
+    .stockMessage {
+        width: inherit;
+        padding: 1em;
+        border-radius: 0
     }
 }

@@ -32,6 +32,10 @@ tr:nth-of-type(2n) {
     text-align: center;
 }
 
+.stockTitle {
+    color: #2685c4;
+}
+
 .table {
     width: 100%;
     margin: 0 auto;

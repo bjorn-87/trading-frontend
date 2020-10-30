@@ -229,7 +229,7 @@ class StockPage extends Component {
         return (
             <div>
                 <div className="stockPage">
-                    <h1>Candy stock</h1>
+                    <h1 className="stockTitle">Stocks available</h1>
                     <div id="graphContainer">
                         {prices[0] ? <h2>Salt sill</h2> : <h2>Loading...</h2>}
                         <div id="graphElement0"/>
@@ -285,7 +285,11 @@ class StockPage extends Component {
                             </form>
                         ))}
                     </div>
-                    : null}
+                    :
+                    <div className="stockMessage">
+                        <p>Login/register to start trade</p>
+                    </div>
+                }
             </div>
         );
     }

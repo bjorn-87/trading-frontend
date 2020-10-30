@@ -100,7 +100,7 @@ class Login extends Component {
         }
         return (
             <main className="loginPage">
-                <h2>Logga in</h2>
+                <h2 className="stockTitle">Logga in</h2>
                 <this.RegisterMessage />
                 <p>{this.state.message}</p>
                 <form className="input-form" onSubmit={this.handleSubmit}>

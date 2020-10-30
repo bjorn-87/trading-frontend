@@ -67,7 +67,7 @@ class Register extends Component {
         } else {
             return (
                 <main className="registerPage">
-                    <h2>Registrera användare</h2>
+                    <h2 className="stockTitle">Registrera användare</h2>
                     <p>{this.state.message}</p>
                     <form className="input-form" onSubmit={this.handleSubmit}>
                         <label className="input-label">
