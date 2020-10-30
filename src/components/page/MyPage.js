@@ -23,15 +23,13 @@ class MyPage extends Component {
             stocks: [],
             error: "",
             money: 0
-        }
+        };
     }
 
     componentDidMount() {
-
         const loggedIn = localStorage.getItem('loggedIn') === 'true';
         const user = localStorage.getItem('user');
         const token = localStorage.getItem('token');
-
 
         if (loggedIn) {
             this.setState({
@@ -39,7 +37,6 @@ class MyPage extends Component {
                 user: user,
                 token: token,
             });
-
         }
         // console.log(this.state.user);
         this.handleFetch("user", user, token, "account");
@@ -50,6 +47,7 @@ class MyPage extends Component {
         const payload = {
             user: user
         };
+
         // console.log(token);
         // console.log(payload);
         fetch(`${this.baseUrl}${url}`, {
@@ -131,7 +129,7 @@ class MyPage extends Component {
                 </div>
             );
         }
-        return(
+        return (
             <div className="userPage">
                 <h1>My page</h1>
                 <div>
@@ -145,12 +143,12 @@ class MyPage extends Component {
                             </tr>
                         </thead>
                         <tbody>
-                        {portfolio.length > 0 ? portfolio.map((stock, index) => (
-                            <tr key={index}>
-                                <td>{stock.stock}</td>
-                                <td>{stock.amount}</td>
-                            </tr>
-                        )) : null}
+                            {portfolio.length > 0 ? portfolio.map((stock, index) => (
+                                <tr key={index}>
+                                    <td>{stock.stock}</td>
+                                    <td>{stock.amount}</td>
+                                </tr>
+                            )) : null}
                         </tbody>
                     </table>
                     {portfolio.length === 0 ? <h3 className="noStock">No stocks yet</h3> : null}

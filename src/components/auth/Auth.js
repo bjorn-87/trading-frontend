@@ -59,7 +59,7 @@ class Login extends Component {
                     // console.log(localStorage);
                     this.setState({
                         message: res.data.message,
-                        redirect: "/"
+                        redirect: "/mypage"
                     });
                 } else {
                     this.setState({message: res.errors.detail});
@@ -107,6 +107,7 @@ class Login extends Component {
                         E-Post
                     </label>
                     <input
+                        id="email"
                         className="input"
                         type="email"
                         name="email"
@@ -118,6 +119,7 @@ class Login extends Component {
                         Lösenord
                     </label>
                     <input
+                        id="password"
                         className="input"
                         type="password"
                         name="password"
@@ -125,11 +127,16 @@ class Login extends Component {
                         required
                         value={this.state.password}
                         onChange={this.handleChange} />
-                    <input className="button green-button" type="submit" value="Login" />
+                    <input
+                        id="subBtn"
+                        className="button green-button"
+                        type="submit"
+                        value="Login"
+                    />
                 </form>
             </main>
         );
     }
 }
 
-export {Login, LogOut} ;
+export {Login, LogOut};

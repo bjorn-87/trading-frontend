@@ -17,7 +17,7 @@ class App extends Component {
         this.changeHandler = this.changeHandler.bind(this);
         this.state = {
             loggedIn: false
-        }
+        };
     }
     componentDidMount() {
         const loggedIn = localStorage.getItem('loggedIn') === 'true';
@@ -40,27 +40,33 @@ class App extends Component {
 
         return (
             <Router>
-                  <div className="App">
-                      <header className="App-header" onClick={this.changeH}>
-                          <NavBar loggedIn={loggedIn}/>
-                      </header>
-                      <div className="App-body" >
-                          <Route exact path="/" component={StockPage} />
-                          <Route exact path="/login" render={() =>
-                              <Login loggedIn={this.changeHandler} />
-                          }/>
-                          <Route exact path="/register" component={Register} />
-                          <Route exact path="/mypage" component={MyPage} />
-                          <Route exact path="/logout" render={() =>
-                              <LogOut loggedIn={this.changeHandler} />
-                          }/>
-                      </div>
-                      <footer className="pageFooter">
-                          <p>&copy; Björn Olsson 2020</p>
-                      </footer>
+                <div className="App">
+                    <header className="App-header" onClick={this.changeH}>
+                        <NavBar loggedIn={loggedIn}/>
+                    </header>
+                    <div className="App-body" >
+                        <Route exact path="/" component={StockPage} />
+                        <Route
+                            exact path="/login"
+                            render={(props) => (
+                                <Login {...props} loggedIn={this.changeHandler} />
+                            )}
+                        />
+                        <Route exact path="/register" component={Register} />
+                        <Route exact path="/mypage" component={MyPage} />
+                        <Route
+                            exact path="/logout"
+                            render={(props) => (
+                                <LogOut {...props} loggedIn={this.changeHandler} />
+                            )}
+                        />
+                    </div>
+                    <footer className="pageFooter">
+                        <p>&copy; Björn Olsson 2020</p>
+                    </footer>
                 </div>
             </Router>
-        )
+        );
     }
 }
 export default App;

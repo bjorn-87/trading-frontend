@@ -35,7 +35,7 @@ class StockPage extends Component {
             clicked: "",
             "Salt sill": 0,
             Skolkrita: 0
-        }
+        };
     }
 
     componentDidMount() {
@@ -82,8 +82,8 @@ class StockPage extends Component {
     updateDiagram(stock) {
         let data = {};
         var graphs = this.state.graphs;
-
         let slug = this.slugify(stock.name);
+
         data[stock.name] = stock.startingPoint;
         graphs[slug].graph.series.addData(data);
         graphs[slug].graph.render();
@@ -118,7 +118,7 @@ class StockPage extends Component {
                 width: graphContainer.clientWidth,
             });
             graph.render();
-        }
+        };
 
         graphResize();
 
@@ -175,7 +175,7 @@ class StockPage extends Component {
             amount: amount,
             price: price,
             stock: stock
-        }
+        };
 
         if (clicked === "buy") {
             url = `${this.baseUrl}order/buy`;
@@ -217,56 +217,68 @@ class StockPage extends Component {
     render() {
         const prices = this.state.stocks;
 
-            return (
-                <div>
+        return (
+            <div>
                 <div className="stockPage">
                     <h1>Candy stock</h1>
                     <div id="graphContainer">
                         {prices[0] ? <h2>Salt sill</h2> : <h2>Loading...</h2>}
                         <div id="graphElement0"/>
-                        {prices[0] ? <p className="stockPrice">Stock value: {prices[0].startingPoint}</p> : null}
+                        {prices[0] ?
+                            <p className="stockPrice">Stock value: {prices[0].startingPoint}</p>
+                            : null}
                         {prices[1] ? <h2>Skolkrita</h2> : null}
                         <div id="graphElement1"/>
-                        {prices[1] ? <p className="stockPrice">Stock value: {prices[1].startingPoint}</p> : null}
+                        {prices[1] ?
+                            <p className="stockPrice">Stock value: {prices[1].startingPoint}</p>
+                            : null}
                     </div>
                 </div>
                 {this.state.loggedIn ?
-                <div className="stockFormHolder">
-                {prices.map((stock, index) => (
-                    <form key={index} className="stockForm" onSubmit={this.handleSubmit}>
-                    <input
-                        name="price"
-                        type="hidden"
-                        value={stock.startingPoint}
-                    />
-                    <input
-                        name="stock"
-                        type="hidden"
-                        value={stock.name}
-                    />
-                    <h3>{stock.name}</h3>
-                    <p>Stock value: {stock.startingPoint} SEK</p>
-                    <input
-                    className="input"
-                    name={stock.name}
-                    type="number"
-                    min="1"
-                    required
-                    value={this.state[stock.name]}
-                    onChange={this.handleChange}
-                    />
-                    <button className="button green-button" name="clicked" value="buy" onClick={this.handleChange}>
-                        Buy
-                    </button>
-                    <button className="button blue-button" name="clicked" value="sell" onClick={this.handleChange}>
-                        Sell
-                    </button>
-                    </form>
-                ))}
-                </div>
-                : null}
-                </div>
-            );
+                    <div className="stockFormHolder">
+                        {prices.map((stock, index) => (
+                            <form key={index} className="stockForm" onSubmit={this.handleSubmit}>
+                                <input
+                                    name="price"
+                                    type="hidden"
+                                    value={stock.startingPoint}
+                                />
+                                <input
+                                    name="stock"
+                                    type="hidden"
+                                    value={stock.name}
+                                />
+                                <h3>{stock.name}</h3>
+                                <p>Stock value: {stock.startingPoint} SEK</p>
+                                <input
+                                    className="input"
+                                    name={stock.name}
+                                    type="number"
+                                    min="1"
+                                    required
+                                    value={this.state[stock.name]}
+                                    onChange={this.handleChange}
+                                />
+                                <button
+                                    className="button green-button"
+                                    name="clicked"
+                                    value="buy"
+                                    onClick={this.handleChange}>
+                                    Buy
+                                </button>
+                                <button
+                                    className="button blue-button"
+                                    name="clicked"
+                                    value="sell"
+                                    onClick={this.handleChange}>
+                                    Sell
+                                </button>
+                            </form>
+                        ))}
+                    </div>
+                    : null}
+            </div>
+        );
     }
 }
 
