@@ -17,8 +17,14 @@ You will also see any lint errors in the console.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Runs selenium test with mocha and ends with eslint.
+Before you can run tests with this command you need to start up the API server [https://github.com/bjorn-87/trading-backend](https://github.com/bjorn-87/trading-backend) and start the client with `npm start`.
+Recommended to use `npm run ci` instead.
+
+### `npm run ci` Recommended
+
+Start a server for the client on [http://localhost:3000](http://localhost:3000) and then runs the tests.
+The API server [https://github.com/bjorn-87/trading-backend](https://github.com/bjorn-87/trading-backend) needs to be running first.
 
 ### `npm run build`
 
@@ -30,42 +36,30 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Krav 2 klient:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Använt mig av react och installerade det genom create-react-app.
+Valde react dels då det är ett av de tre mest populära JSramverk och man kan göra väldigt mycket i det, dels då det inte är så hårt styrt vilket jag ser som positivt. Kan till exempel välja mellan att använda klasser, react-hooks eller göra egna vanilla-js funktioner. Jag har själv använt mig mest av klasser genom hela appen då jag känner att jag börjar få koll på hur de fungerar.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Då jag använt godissorter som aktier valde att kalla sidan för CandyExchange och gjorde en ganska enkel men stilren design genom hela sidan och använde avanza.se som inspiration.
+Ville att man skulle kunna se aktierna innan man loggar in då man kan göra det på riktiga trading-sidor och har därför gjort så att indexsidan även är trading-sidan. Innan användaren loggat in så ser man aktierna och vilken kurs de ligger i och när man loggat in så visas även formulär för att köpa och sälja aktier. Har löst detta med ternery-operators i return delen av react-klassen.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+För att få realtidsdata användes socket.io-client och använde mig av rickshaw för att rita ut graferna eftersom det verkade vara bästa alternativet för att visa realtidsdata. Andra verktyg jag tittade på var apexcharts och React Charts men hittade inte någon bra info hur man skulle använda sig av realtidsdata i dessa.
+När man kommer in på sidan ser man graferna direkt och har login och register i navbaren. Loggan och texten bredvid den är även en länk till indexsidan.
+När användaren loggar in så ersätts länkarna med stocks, my page och log out, där stocks är en länk till index/aktiesidan, mypage är sidan där användaren ser sin portfolio(aktier och kontobalans) och där användaren kan sätta in pengar på kontot via ett formulär. Lagt till en log out länk eftersom vid inloggning sparas e-postadress, token och variabeln loggedIn i localstorage. Kollar sedan om loggedIn är true på alla sidor som kräver autentisering. Vid utloggning töms sedan localstorage.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Har använt mig av npm paketet material-ui/icons för att skapa ikonerna i navbaren. Detta då det var smidigt att ha ett helt bibliotek av ikoner att välja mellan och det ser trevligare ut med ikoner i navbaren.
+Har jobbat med att få sidan responsiv och har valt en media query på 700px som kändes passande. testat den i både chrome, firefox och androidmobil.
 
-## Learn More
+## Krav 5 Selenium tester:
+Använt mig av verktygen mocha och selenium-webdriver för att köra dessa testcases.
+Har inte gjort någon koppling till travis då det inte var ett krav och då backend-servern måste vara igång för att kunna köra testerna.
+Testerna körs-lokalt genom att clona detta repo och [serverns](https://github.com/bjorn-87/trading-backend) och sedan starta servern och köra `npm run ci`.
+Vill man använda kommandot `npm test` så måste man först starta klienten med npm start.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+### Usecases:
+1. Användaren ska kunna surfa till sidan, se att titeln i webbläsaren är CandyExchange och att ruouten är ”/”.
+2. Användaren ska kunna gå från förstasidan till sidan för att registrera en användare genom att klicka på en länk i navbaren.
+3. Användaren ska kunna ta sig från förstasidan till Login sidan för att sedan kunna ta sig tillbaka till indexsidan via att klicka på länkar i navbaren.
+4. Användaren ska kunna klicka på en länk för att komma till login-sidan och sedan kunna logga in för att se sin personliga sida(mypage).
+5. Användaren ska kunna klicka sig till login-sidan via en länk för att sedan logga in och därifrån klicka på en länk för att komma till sidan med aktier där det finns ett button-element för att köpa aktier.

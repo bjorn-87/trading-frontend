@@ -9,8 +9,6 @@ import '../div/Buttons.css';
 import '../div/Input.css';
 
 const socket = io(GetUrl());
-// const socket = io("http://localhost:8383");
-// const socket = io('https://trading-server.bjos19.me');
 
 class StockPage extends Component {
     constructor(props) {
@@ -106,7 +104,7 @@ class StockPage extends Component {
         let slug = this.slugify(stock.name);
         let date = new Date();
 
-        date.setHours(date.getHours());
+        date.setHours(date.getHours() + 1);
         let graph = new Rickshaw.Graph({
             element: graphElement,
             width: "500",
@@ -116,7 +114,7 @@ class StockPage extends Component {
                 name: stock.name,
                 color: palette.color(),
             }], undefined, {
-                timeInterval: 5000,
+                timeInterval: 1000,
                 maxDataPoints: 1000,
                 timeBase: date.getTime() / 1000
             })
